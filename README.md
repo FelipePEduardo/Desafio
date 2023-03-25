@@ -6,6 +6,8 @@ comentários associados.
 
 ## Demonstração
 
+![image](https://user-images.githubusercontent.com/103855358/227682356-d244b55f-749e-41d9-a77a-2df8c8ab4f8f.png)
+
 ## Stack utilizada
 
 **Front-end:** React, Styled-Components
