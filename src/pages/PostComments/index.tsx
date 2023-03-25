@@ -18,7 +18,7 @@ interface Post {
 
 export function PostComments() {
   const [comments, setComments] = useState<Comment[]>([])
-  const [epost, setePost] = useState({} as Post)
+  const [post, setPost] = useState({} as Post)
 
   const { id } = useParams()
   const navigate = useNavigate()
@@ -27,16 +27,16 @@ export function PostComments() {
     navigate(-1)
   }
 
+  async function fetchPost() {
+    const response = await api.get(`posts/${id}`)
+
+    setPost(response.data)
+  }
+
   async function fetchPostComments() {
     const response = await api.get(`/posts/${id}/comments`)
         
     setComments(response.data)
-  }
-
-  async function fetchPost() {
-    const response = await api.get(`posts/${id}`)
-
-    setePost(response.data)
   }
 
   useEffect(() => {
@@ -49,8 +49,8 @@ export function PostComments() {
       <PostContainer>
         <h3>Publicação</h3>
         <div>
-          <h2>{epost.title}</h2>
-          <p>{epost.body}</p>
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
         </div>
       </PostContainer>
 

@@ -43,7 +43,7 @@ export function Post({ onPost }: PostProps) {
     navigate(`/posts/${onPost.id}/comments`)
   }
 
-  function handleClickInLike() {
+  function handleLikePost() {
     setLikesCount(state => state + 1)
   }
 
@@ -65,7 +65,7 @@ export function Post({ onPost }: PostProps) {
           <p>{onPost.body}</p>
         </PostInfo>
         <ButtonsContainer>
-          <button onClick={handleClickInLike} >
+          <button onClick={handleLikePost} >
             <AiOutlineLike />
             Curtidas
             <span>{likeCount}</span>
